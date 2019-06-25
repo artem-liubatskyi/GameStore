@@ -7,7 +7,7 @@ namespace GameStore.DataAccess
 {
     public interface IUnitOfWork
     {
-
+        IAppRepository AppRepository { get; }
         void BeginTransaction();
         void CommitTransaction();
         void RollbackTransaction();

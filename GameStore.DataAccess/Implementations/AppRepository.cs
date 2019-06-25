@@ -1,35 +1,40 @@
-﻿using GameStore.Data.Entities;
+﻿using GameStore.Data;
+using GameStore.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace GameStore.DataAccess.Implementations
 {
     public class AppRepository : Repository<App>, IAppRepository
     {
-        public AppRepository(DbContext context) : base(context)
+        public AppRepository(GameStoreDbContext context) : base(context)
         {
         }
 
-        public Task<IEnumerable<App>> GetByCategory(long CategoryId)
+        public async Task<IEnumerable<App>> GetByCategory(long CategoryId)
         {
-            throw new NotImplementedException();
+            return await context.Apps.Include(p => p.Categories)
+                .Where(x => x.Categories.FirstOrDefault(c=>c.CategorieId==CategoryId)!=null)
+                .AsNoTracking()
+                .ToArrayAsync();
         }
 
-        public Task<IEnumerable<App>> GetBySearchQuery(string query)
+        public async Task<IEnumerable<App>> GetBySearchQuery(string query)
         {
-            throw new NotImplementedException();
+            return await context.Apps.Where(x => x.Name == query).ToArrayAsync();
         }
 
-        public Task<IEnumerable<App>> GetByType(long TypeId)
+        public async Task<IEnumerable<App>> GetByType(long TypeId)
         {
-            throw new NotImplementedException();
+            return await context.Apps.Where(x => x.TypeId == TypeId).ToArrayAsync();
         }
 
-        public Task<IEnumerable<App>> GetTopDownloaded(int topSize = 50)
+        public async Task<IEnumerable<App>> GetTopDownloaded(int topSize = 50)
         {
-            throw new NotImplementedException();
+            return await context.Apps.OrderByDescending(x => x.DownloadCount).Take(topSize).ToArrayAsync();
         }
     }
 }

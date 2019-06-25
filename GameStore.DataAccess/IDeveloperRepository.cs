@@ -5,6 +5,6 @@ namespace GameStore.DataAccess
 {
     public interface IDeveloperRepository
     {
-        Task<Developer> GetWithApps();
+        Task<Developer> GetWithApps(long id);
     }
 }

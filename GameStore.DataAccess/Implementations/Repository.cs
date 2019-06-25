@@ -8,9 +8,9 @@ namespace GameStore.DataAccess.Implementations
 {
     public class Repository<TEntity> : IRepository<IEntity>
     {
-        protected readonly DbContext context;
+        protected readonly GameStoreDbContext context;
 
-        public Repository(DbContext context)
+        public Repository(GameStoreDbContext context)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }

@@ -1,19 +1,21 @@
-﻿using GameStore.Data.Entities;
+﻿using GameStore.Data;
+using GameStore.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GameStore.DataAccess.Implementations
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-        public UserRepository(DbContext context) : base(context)
+        public UserRepository(GameStoreDbContext context) : base(context)
         {
         }
 
-        public Task<User> GetWithApps(long id)
+        public async Task<User> GetWithApps(long id)
         {
-            throw new NotImplementedException();
+            return await context.Users.Where(x => x.Id == id).Include(x => x.Apps).FirstOrDefaultAsync();
+
         }
     }
 }

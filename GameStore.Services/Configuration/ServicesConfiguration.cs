@@ -1,4 +1,5 @@
 ﻿using GameStore.DataAccess.Configuration;
+using GameStore.Services.Implementations;
 using Microsoft.Extensions.DependencyInjection;
 namespace GameStore.Services.Configuration
 {
@@ -8,6 +9,7 @@ namespace GameStore.Services.Configuration
         {
             collection.RegisterDataAccessDependencies();
 
+            collection.AddTransient<IAppService, AppService>();
         }
     }
 }

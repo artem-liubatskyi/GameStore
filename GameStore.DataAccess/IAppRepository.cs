@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.DataAccess
 {
-    public interface IAppRepository
+    public interface IAppRepository : IRepository<App>
     {
         Task<IEnumerable<App>> GetByCategory(long CategoryId);
         Task<IEnumerable<App>> GetBySearchQuery(string query);
