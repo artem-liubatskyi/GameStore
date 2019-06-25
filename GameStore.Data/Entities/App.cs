@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GameStore.Data.Entities
 {
-    public class App
+    public class App : IEntity
     {
         public long Id { get; set; }
         public long DeveloperId { get; set; }

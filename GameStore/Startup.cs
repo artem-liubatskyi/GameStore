@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GameStore.Data;
+using GameStore.Services.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +31,8 @@ namespace GameStore
 
             services.AddDbContext<GameStoreDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
+
+            services.RegisterServicesDependencies();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

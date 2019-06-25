@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore", "GameStore\Game
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Data", "GameStore.Data\GameStore.Data.csproj", "{958CCD8C-F578-4C5E-8388-F62D74F27BDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.DataAccess", "GameStore.DataAccess\GameStore.DataAccess.csproj", "{FA310C74-18DB-417A-A0E2-074D0F24ECF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Services", "GameStore.Services\GameStore.Services.csproj", "{02BE7D55-42DC-4DEB-B84C-D013A61CDDC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{958CCD8C-F578-4C5E-8388-F62D74F27BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{958CCD8C-F578-4C5E-8388-F62D74F27BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{958CCD8C-F578-4C5E-8388-F62D74F27BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA310C74-18DB-417A-A0E2-074D0F24ECF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA310C74-18DB-417A-A0E2-074D0F24ECF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA310C74-18DB-417A-A0E2-074D0F24ECF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA310C74-18DB-417A-A0E2-074D0F24ECF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02BE7D55-42DC-4DEB-B84C-D013A61CDDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02BE7D55-42DC-4DEB-B84C-D013A61CDDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02BE7D55-42DC-4DEB-B84C-D013A61CDDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02BE7D55-42DC-4DEB-B84C-D013A61CDDC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

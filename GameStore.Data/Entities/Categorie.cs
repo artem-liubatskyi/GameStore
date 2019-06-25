@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GameStore.Data.Entities
 {
-    public class Categorie
+    public class Categorie : IEntity
     {
         public long Id { get; set; }
         public string Name { get; set; }
