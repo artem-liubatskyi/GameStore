@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.DataAccess.Implementations
 {
-    public class Repository<TEntity> : IRepository<IEntity>
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
         protected readonly GameStoreDbContext context;
 
@@ -15,25 +15,25 @@ namespace GameStore.DataAccess.Implementations
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<IEntity> AddAsync(IEntity entity)
+        public async Task<TEntity> AddAsync(TEntity entity)
         {
-            await context.Set<IEntity>().AddAsync(entity);
+            await context.Set<TEntity>().AddAsync(entity);
             return entity;
         }
 
-        public void Delete(IEntity entity)
+        public void Delete(TEntity entity)
         {
-            context.Set<IEntity>().Remove(entity);
+            context.Set<TEntity>().Remove(entity);
         }
 
-        public async Task<IEntity> GetAsync(long id)
+        public async Task<TEntity> GetAsync(long id)
         {
-            return await context.Set<IEntity>().FindAsync(id);
+            return await context.Set<TEntity>().FindAsync(id);
         }
 
-        public void Update(IEntity entity)
+        public void Update(TEntity entity)
         {
-            context.Set<IEntity>().Update(entity);
+            context.Set<TEntity>().Update(entity);
         }
     }
 }
